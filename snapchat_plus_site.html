@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snapchat Plus + | Iyad et Rayan</title>
+<style>
+:root{color-scheme:dark;--yellow:#fffc00;--bg:#090909;--panel:#151515;--muted:#aaa;--line:#303030}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Tahoma,sans-serif}
+main{min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#383600 0%,#141400 23%,#090909 58%);padding:28px 16px 36px}
+.wrap{max-width:820px;margin:auto}.brand{display:flex;align-items:center;justify-content:center;gap:12px;margin:8px auto 26px}
+.ghost{width:54px;height:54px;background:var(--yellow);border-radius:17px;display:grid;place-items:center;color:#111;font-size:32px;font-weight:900}
+h1{font-size:clamp(28px,6vw,44px);margin:0;color:var(--yellow);letter-spacing:-1px}.tag{text-align:center;color:#d3d3d3;margin:0 0 28px}
+h2{font-size:22px;margin:0 0 16px}.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.plan{background:rgba(21,21,21,.94);border:1px solid var(--line);border-radius:18px;padding:20px 12px;text-align:center;cursor:pointer;transition:.18s;min-height:145px}
+.plan:hover{border-color:#aaa}.plan.selected{border:2px solid var(--yellow);background:#252400;transform:translateY(-2px)}
+.plan .duration{font-size:17px;color:#eee}.price{font-size:clamp(21px,4vw,29px);font-weight:800;color:var(--yellow);margin:12px 0 4px}.hint{font-size:12px;color:var(--muted)}
+.order{margin-top:25px;padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:20px}
+.selected-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;border-radius:12px;background:#222;margin-bottom:18px}
+.selected-summary strong{color:var(--yellow);font-size:20px}
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+a.contact{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;padding:15px 12px;border-radius:12px;font-weight:700;color:#111;background:var(--yellow);min-height:54px}
+a.instagram{background:#f4f4f4}
+.note{font-size:12px;line-height:1.7;color:#aaa;margin:16px 0 0}.footer{text-align:center;color:#777;font-size:13px;margin-top:24px}
+@media(max-width:520px){.plans{grid-template-columns:1fr}.plan{min-height:unset;display:flex;align-items:center;justify-content:space-between;text-align:right;padding:16px 18px}.price{margin:0}.hint{display:none}.contacts{grid-template-columns:1fr}.brand{margin-top:12px}}
+</style>
+</head>
+<body>
+<main><div class="wrap">
+<header class="brand"><div class="ghost">+</div><h1>Snapchat Plus +</h1></header>
+<p class="tag">اختار العرض اللي يناسبك واطلب بسهولة ✨</p>
+<section aria-labelledby="offers"><h2 id="offers">🎁 اختار الاشتراك</h2>
+<div class="plans" role="radiogroup" aria-label="العروض">
+<button class="plan selected" type="button" data-name="أسبوع" data-price="500 DA" aria-pressed="true"><span class="duration">اشتراك أسبوع</span><span class="price">500 DA</span><span class="hint">اختيار العرض</span></button>
+<button class="plan" type="button" data-name="شهر" data-price="1000 DA" aria-pressed="false"><span class="duration">اشتراك شهر</span><span class="price">1000 DA</span><span class="hint">اختيار العرض</span></button>
+<button class="plan" type="button" data-name="عام" data-price="2500 DA" aria-pressed="false"><span class="duration">اشتراك عام</span><span class="price">2500 DA</span><span class="hint">اختيار العرض</span></button>
+</div></section>
+<section class="order"><h2>📩 اطلب العرض</h2>
+<div class="selected-summary"><span id="summary">العرض المختار: أسبوع</span><strong id="total">500 DA</strong></div>
+<div class="contacts">
+<a class="contact" id="phoneLink" href="tel:+213559462164">☎️ اتصل بنا: 0559462164</a>
+<a class="contact instagram" id="instaLink" href="https://www.instagram.com/" target="_blank" rel="noopener">📸 تواصل عبر Instagram</a>
+</div>
+<p class="note">للطلب، أخبرنا بالعرض الذي اخترته. لا ترسل كلمة سر حسابك أو رمز التحقق لأي شخص. Snapchat Plus علامة تجارية تابعة لجهة أخرى؛ هذا الموقع صفحة عروض مستقلة وغير رسمية.</p>
+</section>
+<footer class="footer">BY IYAD ET RAYAN · Snapchat Plus +</footer>
+</div></main>
+<script>
+const plans=[...document.querySelectorAll('.plan')];
+function choose(btn){plans.forEach(p=>{const active=p===btn;p.classList.toggle('selected',active);p.setAttribute('aria-pressed',String(active));});document.getElementById('summary').textContent='العرض المختار: '+btn.dataset.name;document.getElementById('total').textContent=btn.dataset.price;}
+plans.forEach(btn=>btn.addEventListener('click',()=>choose(btn)));
+</script>
+</body></html>
